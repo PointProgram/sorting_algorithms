@@ -1,0 +1,31 @@
+IDIR = ../include
+CC=gcc
+CFLAGS=-I$(IDIR)
+
+ODIR=obj
+LDIR=../lib
+
+LIBS=-lm
+
+_DEPS = CommonVector.h FillArr.h globVar.h Measurements.h menu.h MesRes.h Sorts.h
+DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
+
+_OBJ = main.o FillArr.o Measurements.o menu.o MesRes.o Sorts.o
+OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
+
+
+$(ODIR)/%.o: %.c $(DEPS)
+	$(CC) -c -o $ $@ $< $(CFLAGS)
+
+sortalg: $(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
+
+.PHONY: clean
+
+clean:
+	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~
+
+
+
+hellomake: main.c FillArr.c Measurements.c menu.c MesRes.c Sorts.c
+	gcc -o hellomake main.c FillArr.c Measurements.c menu.c MesRes.c Sorts.c -I

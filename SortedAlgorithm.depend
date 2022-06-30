@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1656608286 source:c:\users\thinkpad\dropbox\my pc (vasyl)\desktop\kyckka\trainee\sorts\sort_project\sortedalgorithm\src\fillarr.c
+	"../include/FillArr.h"
+	"../include/CommonVector.h"
+
+1556830431 c:\users\thinkpad\dropbox\my pc (vasyl)\desktop\kyckka\trainee\sorts\sort_project\sortedalgorithm\include\fillarr.h
+
+1612968954 c:\users\thinkpad\dropbox\my pc (vasyl)\desktop\kyckka\trainee\sorts\sort_project\sortedalgorithm\include\commonvector.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1656608272 source:c:\users\thinkpad\dropbox\my pc (vasyl)\desktop\kyckka\trainee\sorts\sort_project\sortedalgorithm\src\main.c
+	"../include/menu.h"
+	"../include/FillArr.h"
+	"../include/globVar.h"
+
+1555533127 c:\users\thinkpad\dropbox\my pc (vasyl)\desktop\kyckka\trainee\sorts\sort_project\sortedalgorithm\include\menu.h
+
+1612969843 c:\users\thinkpad\dropbox\my pc (vasyl)\desktop\kyckka\trainee\sorts\sort_project\sortedalgorithm\include\globvar.h
+	<stdio.h>
+
+1656623272 source:c:\users\thinkpad\dropbox\my pc (vasyl)\desktop\kyckka\trainee\sorts\sort_project\sortedalgorithm\src\measurement.c
+	"../include/Measurement.h"
+	<stdio.h>
+
+1612947575 c:\users\thinkpad\dropbox\my pc (vasyl)\desktop\kyckka\trainee\sorts\sort_project\sortedalgorithm\include\measurement.h
+	<time.h>
+
