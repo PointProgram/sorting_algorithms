@@ -1,5 +1,5 @@
-#ifndef __MesRes_H__
-#define __MesRes_H__
+#ifndef __mesRes_H__
+#define __mesRes_H__
 
 void QuickSortMeasurement(int a, int p, int n, int m);
 void SelectMeasurement(int a, int p, int n, int m);

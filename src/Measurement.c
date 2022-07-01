@@ -1,4 +1,4 @@
-#include "../include/Measurement.h"
+#include "../include/measurement.h"
 #include <stdio.h>
 
 clock_t Res[measurements_number];//array of time measurements

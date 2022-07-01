@@ -1,6 +1,7 @@
 #include "../include/menu.h"
-#include "../include/FillArr.h"
+#include "../include/fillArr.h"
 #include "../include/globVar.h"
+
 int P = 20;
 int M = 20;
 int N = 14;

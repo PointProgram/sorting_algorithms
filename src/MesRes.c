@@ -1,8 +1,9 @@
-#include "../include/Measurement.h"
-#include "../include/FillArr.h"
-#include "../include/Sorts.h"
-#include "../include/MesRes.h"
-#include "../include/CommonVector.h"
+#include "../include/measurement.h"
+#include "../include/fillArr.h"
+#include "../include/sortsVector.h"
+#include "../include/sortsTensor.h"
+#include "../include/mesRes.h"
+#include "../include/commonVector.h"
 
 void QuickSortMeasurement(int a, int p, int n, int m)//measurement for quicksort for 3D array
 {
@@ -13,7 +14,7 @@ void QuickSortMeasurement(int a, int p, int n, int m)//measurement for quicksort
         {
             FillUp(p,m,n);
             time_start = clock();//beg of time mes
-            QuickSort(0, p-1, n, m);
+            tensorQuickSort(0, p-1, n, m);
             time_stop = clock();//end of time mes
             Res[i] = time_stop - time_start;//result
         }
@@ -25,7 +26,7 @@ void QuickSortMeasurement(int a, int p, int n, int m)//measurement for quicksort
         {
             FillRand(p, m, n);
             time_start = clock();
-            QuickSort(0, p-1, n, m);
+            tensorQuickSort(0, p-1, n, m);
             time_stop = clock();
             Res[i] = time_stop - time_start;
         }
@@ -37,7 +38,7 @@ void QuickSortMeasurement(int a, int p, int n, int m)//measurement for quicksort
         {
             FillDown(p, m, n);
             time_start = clock();
-            QuickSort(0, p-1, n, m);
+            tensorQuickSort(0, p-1, n, m);
             time_stop = clock();
             Res[i] = time_stop - time_start;
         }
@@ -52,7 +53,7 @@ void SelectMeasurement(int a, int p, int n, int m)//measurement for select for 3
         for (int i = 0; i < measurements_number; i++)
         {
             FillUp(p,m,n);
-            Res[i] = Select8(Arr3D, p,m,n);
+            Res[i] = tensorSelect8(Arr3D, p,m,n);
         }
         break;
         }
@@ -60,7 +61,7 @@ void SelectMeasurement(int a, int p, int n, int m)//measurement for select for 3
         for (int i = 0; i < measurements_number; i++)
         {
             FillRand(p, m, n);
-            Res[i] = Select8(Arr3D, p,m,n);
+            Res[i] = tensorSelect8(Arr3D, p,m,n);
         }
         break;
         }
@@ -68,7 +69,7 @@ void SelectMeasurement(int a, int p, int n, int m)//measurement for select for 3
         for (int i = 0; i < measurements_number; i++)
         {
             FillDown(p, m, n);
-            Res[i] = Select8(Arr3D, p,m,n);
+            Res[i] = tensorSelect8(Arr3D, p,m,n);
         }
         break;
         }
@@ -83,7 +84,7 @@ void ExchangeSortMeasurement(int a, int p, int n, int m)//measurement for exchan
         for (int i = 0; i < measurements_number; i++)
         {
             FillUp(p,m,n);
-            Res[i] = Exchange3(Arr3D, p,m,n);
+            Res[i] = tensorExchange3(Arr3D, p,m,n);
         }
         break;
         }
@@ -91,7 +92,7 @@ void ExchangeSortMeasurement(int a, int p, int n, int m)//measurement for exchan
         for (int i = 0; i < measurements_number; i++)
         {
             FillRand(p,m,n);
-            Res[i] = Exchange3(Arr3D, p,m,n);
+            Res[i] = tensorExchange3(Arr3D, p,m,n);
         }
         break;
         }
@@ -99,7 +100,7 @@ void ExchangeSortMeasurement(int a, int p, int n, int m)//measurement for exchan
         for (int i = 0; i < measurements_number; i++)
         {
             FillDown(p, m, n);
-            Res[i] = Exchange3(Arr3D, p,m,n);
+            Res[i] = tensorExchange3(Arr3D, p,m,n);
         }
         break;
         }
@@ -115,7 +116,7 @@ void vectorQuickSortMeasurement(int a, int v)//measurement for quicksort for vec
         {
             vectorFillUp(v);
             time_start = clock();
-            VectorQuickSort(0, v-1);
+            vectorQuickSort(0, v-1);
             time_stop = clock();
             Res[i] = time_stop - time_start;
         }
@@ -127,7 +128,7 @@ void vectorQuickSortMeasurement(int a, int v)//measurement for quicksort for vec
         {
             vectorFillRand(v);
             time_start = clock();
-            VectorQuickSort(0, v-1);
+            vectorQuickSort(0, v-1);
             time_stop = clock();
             Res[i] = time_stop - time_start;
         }
@@ -139,7 +140,7 @@ void vectorQuickSortMeasurement(int a, int v)//measurement for quicksort for vec
         {
             vectorFillDown(v);
             time_start = clock();
-            VectorQuickSort(0, v-1);
+            vectorQuickSort(0, v-1);
             time_stop = clock();
             Res[i] = time_stop - time_start;
         }
@@ -154,7 +155,7 @@ void vectorSelectMeasurement(int a, int v)//measurement for select for vector
         for (int i = 0; i < measurements_number; i++)
         {
             vectorFillUp(v);
-            Res[i] = VectorSelect8(Vec, v);
+            Res[i] = vectorSelect8(Vec, v);
         }
         break;
         }
@@ -162,7 +163,7 @@ void vectorSelectMeasurement(int a, int v)//measurement for select for vector
         for (int i = 0; i < measurements_number; i++)
         {
             vectorFillRand(v);
-            Res[i] = VectorSelect8(Vec, v);
+            Res[i] = vectorSelect8(Vec, v);
         }
         break;
         }
@@ -170,7 +171,7 @@ void vectorSelectMeasurement(int a, int v)//measurement for select for vector
         for (int i = 0; i < measurements_number; i++)
         {
             vectorFillDown(v);
-            Res[i] = VectorSelect8(Vec, v);
+            Res[i] = vectorSelect8(Vec, v);
         }
         break;
         }
@@ -185,7 +186,7 @@ void vectorExchangeSortMeasurement(int a, int v)//measurement for exchange for v
         for (int i = 0; i < measurements_number; i++)
         {
             vectorFillUp(v);
-            Res[i] = VectorExchange3(Vec, v);
+            Res[i] = vectorExchange3(Vec, v);
         }
         break;
         }
@@ -193,7 +194,7 @@ void vectorExchangeSortMeasurement(int a, int v)//measurement for exchange for v
         for (int i = 0; i < measurements_number; i++)
         {
             vectorFillRand(v);
-            Res[i] = VectorExchange3(Vec, v);
+            Res[i] = vectorExchange3(Vec, v);
         }
         break;
         }
@@ -201,7 +202,7 @@ void vectorExchangeSortMeasurement(int a, int v)//measurement for exchange for v
         for (int i = 0; i < measurements_number; i++)
         {
             vectorFillDown(v);
-            Res[i] = VectorExchange3(Vec, v);
+            Res[i] = vectorExchange3(Vec, v);
         }
         break;
         }

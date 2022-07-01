@@ -1,5 +1,5 @@
-#include "../include/FillArr.h"
-#include "../include/CommonVector.h"
+#include "../include/fillArr.h"
+#include "../include/commonVector.h"
 
 
 void DynBeg(int P, int M, int N) {//allocate memory of array
@@ -11,6 +11,7 @@ void DynBeg(int P, int M, int N) {//allocate memory of array
 			Arr3D[k][i] = (int*) malloc(N*sizeof(int));
 	}
 }
+
 void DynEnd(int P, int M) {//release memory
     int k, i;
     for(k=0;k<P;k++){
@@ -21,6 +22,31 @@ void DynEnd(int P, int M) {//release memory
 	}
 	free(Arr3D);
 }
+
+int ***copyArray3D(int P, int M, int N) {
+    int ***cpy;
+
+    //DynBeg(P, M, N);
+
+    for(int i = 0; i < P; i++) {
+        for (int j = 0; j < M; j++) {
+            memcpy(cpy[i][j], Arr3D[i][j], N*sizeof(int));
+        }
+    }
+
+    return cpy;
+}
+
+int *copyVector(int V) {
+    int *cpy;
+
+    //vectorDynBeg(cpy, V);
+
+    memcpy(cpy, Vec, sizeof(int) * V);
+
+    return cpy;
+}
+
 void FillUp(int P, int M, int N){//fill array with ordered numbers
 	int i,j,k;
 	int number = 0;
@@ -32,6 +58,7 @@ void FillUp(int P, int M, int N){//fill array with ordered numbers
 		}
 	}
 }
+
 void FillRand(int P, int M, int N){//fill 3D array with random numbers
 	int i,j,k;
 	for(k=0;k<P;k++){
@@ -42,6 +69,7 @@ void FillRand(int P, int M, int N){//fill 3D array with random numbers
 		}
 	}
 }
+
 void FillDown(int P, int M, int N){//fill 3D array with unordered numbers
 int i,j,k;
 int number = P*M*N;
@@ -66,11 +94,12 @@ void vectorFillUp(int V){//fill vector with ordered numbers
 }
 void vectorFillRand(int V){//fill vector with random numbers
     for(int v=0;v<V;v++){
-        Vec[v]=rand();
+        Vec[v]=rand()%V;
     }
 }
+
 void vectorFillDown(int V){//fill vector with unordered numbers
     for(int v=0;v<V;v++){
-        Vec[v]=V-v;;
+        Vec[v]=V-v;
     }
 }

@@ -3,16 +3,17 @@
 #include <string.h>
 #include <conio.h> // for windows use
 //#include "../include/conio.h" //for getch() and linux use
-#include "../include/MesRes.h"
-#include "../include/Measurement.h"
-#include "../include/CommonVector.h"
+#include "../include/mesRes.h"
+#include "../include/measurement.h"
+#include "../include/commonVector.h"
 #include "../include/menu.h"
-#include "../include/globVar.h"sudo apt install mingw-w64
+#include "../include/globVar.h"
+#include "../include/displayArray.h"
 
-#include "../include/FillArr.h"
+#include "../include/fillArr.h"
 
 #pragma warning (disable:4996)
-#define MAX 7 //max number of menu items
+#define MAX 8 //max number of menu items
 #define MIN 1 //min number of menu items
 
 /*int P = 200;
@@ -150,8 +151,10 @@ void menut(){//main menu in which user can choose type of sort algorithms
     gotoxy(30, 15);
     arrow(6, position);printf("Choosing 2d or 3d algorithm");
     gotoxy(30, 16);
-	arrow(7, position);printf("Exit\n");
-	gotoxy(30,17);
+    arrow(7, position);printf("Display");
+    gotoxy(30, 17);
+	arrow(8, position);printf("Exit\n");
+	gotoxy(30,18);
 
 	printf("Press enter to continue...");
 
@@ -307,6 +310,20 @@ void menut(){//main menu in which user can choose type of sort algorithms
             menuv();
         else {
             system("cls"); menut();
+        }
+
+        break;
+    }
+    case 7: {
+        system("cls");
+        printf("Your array is printed in console\n");
+
+        display3DArray();
+
+        printf("Press the left arrow to come back to menu...");
+        if (getch() == 224) {
+            char key = getch();
+            if (key == 75) { system("cls"); menut(); }
         }
 
         break;
