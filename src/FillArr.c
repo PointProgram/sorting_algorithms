@@ -26,7 +26,12 @@ void DynEnd(int P, int M) {//release memory
 int ***copyArray3D(int P, int M, int N) {
     int ***cpy;
 
-    //DynBeg(P, M, N);
+    cpy = (int***) malloc(P*sizeof(int**));
+	for (int k=0; k<P; k++){
+		cpy[k] = (int**) malloc(M*sizeof(int*));
+		for (int i=0; i<M; i++)
+			cpy[k][i] = (int*) malloc(N*sizeof(int));
+	}
 
     for(int i = 0; i < P; i++) {
         for (int j = 0; j < M; j++) {
@@ -40,7 +45,7 @@ int ***copyArray3D(int P, int M, int N) {
 int *copyVector(int V) {
     int *cpy;
 
-    //vectorDynBeg(cpy, V);
+    cpy = (int*) malloc(V*sizeof(int));
 
     memcpy(cpy, Vec, sizeof(int) * V);
 

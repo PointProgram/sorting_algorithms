@@ -5,7 +5,7 @@
 #include <time.h>
 #include <math.h>
 
-clock_t tensorInsert1(int * A, int N, int rows, int clmns) {
+clock_t tensorInsert1(int ***A, int N, int rows, int clmns) {
     int Elem, j;
     clock_t time_start, time_stop;
     time_start = clock();
@@ -27,7 +27,7 @@ clock_t tensorInsert1(int * A, int N, int rows, int clmns) {
 
 // Sorting algorithm No. 1 of the direct insertion method (with a linear search for the place of insertion from the beginning of the sequence being sorted, or "from the left")
 
-clock_t tensorInsert2(int * A, int N, int rows, int clmns) {
+clock_t tensorInsert2(int ***A, int N, int rows, int clmns) {
     int Elem, j;
     clock_t time_start, time_stop;
     time_start = clock();
@@ -48,7 +48,7 @@ clock_t tensorInsert2(int * A, int N, int rows, int clmns) {
 
 // Sorting algorithm No. 2 of the direct insertion method (from lines - by searching for the place of insertion from the inserted element, or "on the right", without a barrier).
 
-clock_t tensorInsert3(int * A, int N, int rows, int clmns) {
+clock_t tensorInsert3(int ***A, int N, int rows, int clmns) {
     int j;
     clock_t time_start, time_stop;
     time_start = clock();
@@ -69,7 +69,7 @@ clock_t tensorInsert3(int * A, int N, int rows, int clmns) {
 
 // Sorting algorithm No. 3 of the direct insertion method (from lines - by searching for the place of insertion from the inserted element, or "on the right", with a barrier).
 
-clock_t tensorInsert4(int * A, int N, int rows, int clmns) {
+clock_t tensorInsert4(int ***A, int N, int rows, int clmns) {
     int Elem, L, R, j;
     clock_t time_start, time_stop;
     time_start = clock();
@@ -96,7 +96,7 @@ clock_t tensorInsert4(int * A, int N, int rows, int clmns) {
 
 // Sorting algorithm No. 4 of the direct insertion method (with a binary search for the insertion site).
 
-clock_t tensorSelect1(int * A, int N, int rows, int clmns) {
+clock_t tensorSelect1(int ***A, int N, int rows, int clmns) {
     int Min, imin;
     clock_t time_start, time_stop;
     time_start = clock();
@@ -119,7 +119,7 @@ clock_t tensorSelect1(int * A, int N, int rows, int clmns) {
 
 // Sorting algorithm No. 1 of the direct selection method.
 
-clock_t tensorSelect2(int * A, int N, int rows, int clmns) {
+clock_t tensorSelect2(int ***A, int N, int rows, int clmns) {
     int imin, tmp;
     clock_t time_start, time_stop;
     time_start = clock();
@@ -139,7 +139,7 @@ clock_t tensorSelect2(int * A, int N, int rows, int clmns) {
 
 // Sorting algorithm No. 2 of the direct selection method.
 
-clock_t tensorSelect3(int * A, int N, int rows, int clmns) {
+clock_t tensorSelect3(int ***A, int N, int rows, int clmns) {
     int Min, Max;
     int L, R, imin, imax;
 
@@ -183,7 +183,7 @@ clock_t tensorSelect3(int * A, int N, int rows, int clmns) {
 
 // Sorting algorithm No. 3 of the direct selection method.
 
-clock_t tensorSelect4(int * A, int N, int rows, int clmns) {
+clock_t tensorSelect4(int ***A, int N, int rows, int clmns) {
     int L, R, imin, imax, tmp;
 
     clock_t time_start, time_stop;
@@ -223,7 +223,7 @@ clock_t tensorSelect4(int * A, int N, int rows, int clmns) {
 
 // Sorting algorithm No. 4 of the direct selection method.
 
-clock_t tensorSelect5(int * A, int N, int rows, int clmns) {
+clock_t tensorSelect5(int ***A, int N, int rows, int clmns) {
     int Min, imin;
     clock_t time_start, time_stop;
     time_start = clock();
@@ -248,7 +248,7 @@ clock_t tensorSelect5(int * A, int N, int rows, int clmns) {
 
 // Sorting algorithm No. 5 of the direct selection method.
 
-clock_t tensorSelect6(int * A, int N, int rows, int clmns) {
+clock_t tensorSelect6(int ***A, int N, int rows, int clmns) {
     int imin, tmp;
     clock_t time_start, time_stop;
     time_start = clock();
@@ -270,7 +270,7 @@ clock_t tensorSelect6(int * A, int N, int rows, int clmns) {
 
 // Sorting algorithm No. 6 of the direct selection method.
 
-clock_t tensorSelect7(int * A, int N, int rows, int clmns) {
+clock_t tensorSelect7(int ***A, int N, int rows, int clmns) {
     int Min, Max;
     int L, R, imin, imax;
 
@@ -315,7 +315,7 @@ clock_t tensorSelect7(int * A, int N, int rows, int clmns) {
 
 // Sorting algorithm No. 7 of the direct selection method.
 
-clock_t tensorSelect8(int * A, int N, int rows, int clmns) {
+clock_t tensorSelect8(int ***A, int N, int rows, int clmns) {
     int L, R, imin, imax, tmp;
 
     clock_t time_start, time_stop;
@@ -358,7 +358,7 @@ clock_t tensorSelect8(int * A, int N, int rows, int clmns) {
 
 // Sorting algorithm No. 8 of the direct selection method.
 
-clock_t tensorExchange1(int * A, int N, int rows, int clmns) {
+clock_t tensorExchange1(int ***A, int N, int rows, int clmns) {
     int tmp;
     clock_t time_start, time_stop;
     time_start = clock();
@@ -378,7 +378,7 @@ clock_t tensorExchange1(int * A, int N, int rows, int clmns) {
 
 // Sorting algorithm No. 1 of the direct exchange method (without modifications).
 
-clock_t tensorExchange2(int * A, int N, int rows, int clmns) {
+clock_t tensorExchange2(int ***A, int N, int rows, int clmns) {
     int R, flag, tmp;
     clock_t time_start, time_stop;
     time_start = clock();
@@ -402,7 +402,7 @@ clock_t tensorExchange2(int * A, int N, int rows, int clmns) {
 
 // Sorting algorithm No. 2 of the direct exchange method (using the flag).
 
-clock_t tensorExchange3(int * A, int N, int rows, int clmns) {
+clock_t tensorExchange3(int ***A, int N, int rows, int clmns) {
     int R, k, tmp;
     clock_t time_start, time_stop;
     time_start = clock();
@@ -425,7 +425,7 @@ clock_t tensorExchange3(int * A, int N, int rows, int clmns) {
 
 // Sorting algorithm No. 3 of the direct exchange method (with memory of the place of the last permutation).
 
-clock_t tensorExchange4(int * A, int N, int rows, int clmns) {
+clock_t tensorExchange4(int ***A, int N, int rows, int clmns) {
     int L, R, k, tmp;
     clock_t time_start, time_stop;
     time_start = clock();
@@ -456,7 +456,7 @@ clock_t tensorExchange4(int * A, int N, int rows, int clmns) {
 
 // Sorting algorithm No. 4 of the direct exchange method (Shaker sorting).
 
-clock_t tensorInsertExchange(int * A, int N, int rows, int clmns) {
+clock_t tensorInsertExchange(int ***A, int N, int rows, int clmns) {
     int j, tmp;
     clock_t time_start, time_stop;
     time_start = clock();
@@ -477,7 +477,7 @@ clock_t tensorInsertExchange(int * A, int N, int rows, int clmns) {
 
 // Hybrid "insertion-exchange" algorithm.
 
-clock_t tensorSelect1Exchange(int * A, int N, int rows, int clmns) {
+clock_t tensorSelect1Exchange(int ***A, int N, int rows, int clmns) {
     int Min;
     clock_t time_start, time_stop;
     time_start = clock();
@@ -498,7 +498,7 @@ clock_t tensorSelect1Exchange(int * A, int N, int rows, int clmns) {
 
 // Hybrid algorithm "choice #1 - exchange".
 
-clock_t tensorSelect2Exchange(int * A, int N, int rows, int clmns) {
+clock_t tensorSelect2Exchange(int ***A, int N, int rows, int clmns) {
     int tmp;
     clock_t time_start, time_stop;
     time_start = clock();
@@ -518,7 +518,7 @@ clock_t tensorSelect2Exchange(int * A, int N, int rows, int clmns) {
 
 // Hybrid algorithm "choice #2 - exchange".
 
-clock_t tensorSelect3Exchange(int * A, int N, int rows, int clmns) {
+clock_t tensorSelect3Exchange(int ***A, int N, int rows, int clmns) {
     int Min, Max, tmp;
     int L, R;
 
@@ -560,7 +560,7 @@ clock_t tensorSelect3Exchange(int * A, int N, int rows, int clmns) {
 
 // Hybrid algorithm "choice #3 - exchange".
 
-clock_t tensorSelect4Exchange(int * A, int N, int rows, int clmns) {
+clock_t tensorSelect4Exchange(int ***A, int N, int rows, int clmns) {
     int Min, Max;
     int L, R;
 
@@ -595,7 +595,7 @@ clock_t tensorSelect4Exchange(int * A, int N, int rows, int clmns) {
 
 // Hybrid algorithm "choice #4 - exchange".
 
-clock_t tensorShell_1(int * A, int N, int rows, int clmns) {
+clock_t tensorShell_1(int ***A, int N, int rows, int clmns) {
     int Elem, t, j, k;
     clock_t time_start, time_stop;
     time_start = clock();
@@ -627,7 +627,7 @@ clock_t tensorShell_1(int * A, int N, int rows, int clmns) {
 
 // Algorithm No. 1 of the Shell sorting method.
 
-clock_t tensorShell_2(int * A, int N, int rows, int clmns) {
+clock_t tensorShell_2(int ***A, int N, int rows, int clmns) {
     int tmp, t, j, k;
     clock_t time_start, time_stop;
     time_start = clock();
