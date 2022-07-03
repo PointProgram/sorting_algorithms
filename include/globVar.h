@@ -2,10 +2,10 @@
 #define __globVar_H__
 #include <stdio.h>
 
-extern int P;
-extern int M;
-extern int N;
-extern int V;
+extern int BLOCK;
+extern int ROW;
+extern int COLUMN;
+extern int VECTOR_LENGTH;
 
 #endif
 

@@ -328,26 +328,35 @@ clock_t tensorSelect8(int ***A, int N, int rows, int clmns) {
         imax = L;
 
         for (int i = L + 1; i < R + 1; i++)
-            if (A[i] < A[imin]) imin = i;
+            if (A[i] [0][0]< A[imin][0][0]) imin = i;
             else
-                if (A[i] > A[imax]) imax = i;
+                if (A[i][0][0] > A[imax][0][0]) imax = i;
 
         if (imin != L) {
-            tmp = A[imin];
-            A[imin] = A[L];
-            A[L] = tmp;
+            for (int r = 0; r < rows; r++)
+                for (int c = 0; c < clmns; c++) {
+                    tmp = A[imin][r][c];
+                    A[imin][r][c] = A[L][r][c];
+                    A[L][r][c] = tmp;
+                }
         }
         if (imax != R) {
             if (imax == L) {
-                tmp = A[imin];
-                A[imin] = A[R];
-                A[R] = tmp;
+                for (int r = 0; r < rows; r++)
+                    for (int c = 0; c < clmns; c++) {
+                        tmp = A[imin][r][c];
+                        A[imin][r][c] = A[R][r][c];
+                        A[R][r][c] = tmp;
+                    }
             }
         }
         else {
-            tmp = A[imax];
-            A[imax] = A[R];
-            A[R] = tmp;
+            for (int r = 0; r < rows; r++)
+                for (int c = 0; c < clmns; c++) {
+                    tmp = A[imax][r][c];
+                    A[imax][r][c] = A[R][r][c];
+                    A[R][r][c] = tmp;
+                }
         }
         L = L + 1;
         R = R - 1;
@@ -410,12 +419,16 @@ clock_t tensorExchange3(int ***A, int N, int rows, int clmns) {
     while (R > 0) {
         k = 0;
         for (int i = 0; i < R; i++)
-            if (A[i] > A[i + 1]) {
-                tmp = A[i];
-                A[i] = A[i + 1];
-                A[i + 1] = tmp;
-                k = i;
-            } R = k;
+            if (A[i][0][0] > A[i + 1][0][0]) {
+                for (int r = 0; r < rows; r++)
+                    for (int c = 0; c < clmns; c++) {
+                        tmp = A[i][r][c];
+                        A[i][r][c] = A[i+1][r][c];
+                        A[i+1][r][c] = tmp;
+                        k = i;
+                    }
+            }
+        R = k;
     }
 
     time_stop = clock();
@@ -666,8 +679,8 @@ void tensorQuickSort(int L, int R,  int rows, int cols) {
     i = L;
     j = R;
     while (i <= j) {
-        while (Arr3D[i] [0]< B) i = i + 1;
-        while (Arr3D[j] [0]> B) j = j - 1;
+        while (Arr3D[i] [0][0]< B) i = i + 1;
+        while (Arr3D[j] [0][0]> B) j = j - 1;
         if (i <= j) {
             for (int r =0; r < rows; r++)
                 for (int c = 0; c < cols; c++) {
@@ -679,8 +692,8 @@ void tensorQuickSort(int L, int R,  int rows, int cols) {
             j = j - 1;
         }
     }
-    if (L < j) vectorQuickSort(L, j, rows, cols);
-    if (i < R) vectorQuickSort(i, R, rows, cols);
+    if (L < j) tensorQuickSort(L, j, rows, cols);
+    if (i < R) tensorQuickSort(i, R, rows, cols);
 }
 
 // Algorithm of the "quick sorting" method (Hoare sorting).

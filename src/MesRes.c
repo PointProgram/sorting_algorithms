@@ -4,304 +4,204 @@
 #include "../include/sortsTensor.h"
 #include "../include/mesRes.h"
 #include "../include/commonVector.h"
+#include "../include/argStd.h"
+#include "../include/displayArray.h"
 
-enum sortAlg{INSERT1, INSERT2, INSERT3, INSERT4,
-                    SELECT1, SELECT2, SELECT3, SELECT4,
-                    SELECT5, SELECT6, SELECT7, SELECT8,
-                    EXCHANGE1, EXCHANGE2, EXCHANGE3,
-                    EXCHANGE4, INSERTEXCHANGE,
-                    SELECT1EXCHANGE, SELECT2EXCHANGE,
-                    SELECT3EXCHANGE, SELECT4EXCHANGE,
-                    SHELL_1, SHELL_2, QUICKSORT};
+clock_t measurementSortAlgorithmX(sortAlg typeSort, arrType type, int blocks, int rows, int cols) {
 
-clock_t measurementSortAlgorithms(int p, int n, int m, enum sortAlg typeSort) {
     switch(typeSort) {
-
         case INSERT1:
-            return tensorInsert1(Arr3D, p, m, n);
+            if (type == TENSOR_)
+                return tensorInsert1(Arr3D, blocks, rows, cols);
+            else
+                return vectorInsert1(Vec, blocks);
         case INSERT2:
-            return tensorInsert2(Arr3D, p, m, n);
+            if (type == TENSOR_)
+                return tensorInsert2(Arr3D, blocks, rows, cols);
+            else
+                return vectorInsert2(Vec, blocks);
         case INSERT3:
-            return tensorInsert3(Arr3D, p, m, n);
+            if (type == TENSOR_)
+                return tensorInsert3(Arr3D, blocks, rows, cols);
+            else
+                return vectorInsert3(Vec, blocks);
         case INSERT4:
-            return tensorInsert4(Arr3D, p, m, n);
+            if (type == TENSOR_)
+                return tensorInsert4(Arr3D, blocks, rows, cols);
+            else
+                return vectorInsert4(Vec, blocks);
         case SELECT1:
-            return tensorSelect1(Arr3D, p, m, n);
+            if (type == TENSOR_)
+                return tensorSelect1(Arr3D, blocks, rows, cols);
+            else
+                return vectorSelect1(Vec, blocks);
         case SELECT2:
-            return tensorSelect2(Arr3D, p, m, n);
+            if (type == TENSOR_)
+                return tensorSelect2(Arr3D, blocks, rows, cols);
+            else
+                return vectorSelect2(Vec, blocks);
         case SELECT3:
-            return tensorSelect3(Arr3D, p, m, n);
+            if (type == TENSOR_)
+                return tensorSelect3(Arr3D, blocks, rows, cols);
+            else
+                return vectorSelect3(Vec, blocks);
         case SELECT4:
-            return tensorSelect4(Arr3D, p, m, n);
+            if (type == TENSOR_)
+                return tensorSelect4(Arr3D, blocks, rows, cols);
+            else
+                return vectorSelect4(Vec, blocks);
         case SELECT5:
-            return tensorSelect5(Arr3D, p, m, n);
+            if (type == TENSOR_)
+                return tensorSelect5(Arr3D, blocks, rows, cols);
+            else
+                return vectorSelect5(Vec, blocks);
         case SELECT6:
-            return tensorSelect6(Arr3D, p, m, n);
+            if (type == TENSOR_)
+                return tensorSelect6(Arr3D, blocks, rows, cols);
+            else
+                return vectorSelect6(Vec, blocks);
         case SELECT7:
-            return tensorSelect7(Arr3D, p, m, n);
+            if (type == TENSOR_)
+                return tensorSelect7(Arr3D, blocks, rows, cols);
+            else
+                return vectorSelect7(Vec, blocks);
         case SELECT8:
-            return tensorSelect8(Arr3D, p, m, n);
+            if (type == TENSOR_)
+                return tensorSelect8(Arr3D, blocks, rows, cols);
+            else
+                return vectorSelect8(Vec, blocks);
         case EXCHANGE1:
-            return tensorExchange1(Arr3D, p, m, n);
+            if (type == TENSOR_)
+                return tensorExchange1(Arr3D, blocks, rows, cols);
+            else
+                return vectorExchange1(Vec, blocks);
         case EXCHANGE2:
-            return tensorExchange2(Arr3D, p, m, n);
+            if (type == TENSOR_)
+                return tensorExchange2(Arr3D, blocks, rows, cols);
+            else
+                return vectorExchange2(Vec, blocks);
         case EXCHANGE3:
-            return tensorExchange3(Arr3D, p, m, n);
+            if (type == TENSOR_)
+                return tensorExchange3(Arr3D, blocks, rows, cols);
+            else
+                return vectorExchange3(Vec, blocks);
         case EXCHANGE4:
-            return tensorExchange4(Arr3D, p, m, n);
+            if (type == TENSOR_)
+                return tensorExchange4(Arr3D, blocks, rows, cols);
+            else
+                return vectorExchange4(Vec, blocks);
         case INSERTEXCHANGE:
-            return tensorInsertExchange(Arr3D, p, m, n);
+            if (type == TENSOR_)
+                return tensorInsertExchange(Arr3D, blocks, rows, cols);
+            else
+                return vectorInsertExchange(Vec, blocks);
         case SELECT1EXCHANGE:
-            return tensorSelect1Exchange(Arr3D, p, m, n);
+            if (type == TENSOR_)
+                return tensorSelect1Exchange(Arr3D, blocks, rows, cols);
+            else
+                return vectorSelect1Exchange(Vec, blocks);
         case SELECT2EXCHANGE:
-            return tensorSelect2Exchange(Arr3D, p, m, n);
+            if (type == TENSOR_)
+                return tensorSelect2Exchange(Arr3D, blocks, rows, cols);
+            else
+                return vectorSelect2Exchange(Vec, blocks);
         case SELECT3EXCHANGE:
-            return tensorSelect3Exchange(Arr3D, p, m, n);
+            if (type == TENSOR_)
+                return tensorSelect3Exchange(Arr3D, blocks, rows, cols);
+            else
+                return vectorSelect3Exchange(Vec, blocks);
         case SELECT4EXCHANGE:
-            return tensorSelect4Exchange(Arr3D, p, m, n);
+            if (type == TENSOR_)
+                return tensorSelect4Exchange(Arr3D, blocks, rows, cols);
+            else
+                return vectorSelect4Exchange(Vec, blocks);
         case SHELL_1:
-            return tensorShell_1(Arr3D, p, m, n);
+            if (type == TENSOR_)
+                return tensorShell_1(Arr3D, blocks, rows, cols);
+            else
+                return vectorShell_1(Vec, blocks);
         case SHELL_2:
-            return tensorShell_2(Arr3D, p, m, n);
+            if (type == TENSOR_)
+                return tensorShell_2(Arr3D, blocks, rows, cols);
+            else
+                return vectorShell_2(Vec, blocks);
     }
-
-
-
 }
-void tensorMeasurement(int a, int p, int n, int m, clock_t (*sort_f)(int ***, int, int, int) )//measurement for select for 3D array
+
+//passing a function as a parameter argument
+//void tensorMeasurement(int a, int p, int n, int m, clock_t (*sort_f)(int ***, int, int, int) )//measurement for select for 3D array
+void tensorMeasurement(fillType typeFill, int blocks, int rows, int cols, sortAlg typeSort,  arrType typeArray)//measurement for select for 3D array
 {
-    switch(a) {
-        case 1:{
-        for (int i = 0; i < measurements_number; i++)
-        {
-            FillUp(p,m,n);
-            //Res[i] = tensorSelect8(Arr3D, p,m,n);
-            Res[i] = (*sort_f)(Arr3D, p, m, n);
-
+    for (int i = 0; i < measurements_number; i++) {
+        if (typeFill == UP) {
+            tensorFillUp(blocks,rows,cols);
         }
-        break;
+        else if (typeFill == RANDOM) {
+            tensorFillRand(blocks,rows,cols);
         }
-        case 2: {
-        for (int i = 0; i < measurements_number; i++)
-        {
-            FillRand(p, m, n);
-            Res[i] = (*sort_f)(Arr3D, p, m, n);
+        else if (typeFill = DOWN) {
+            tensorFillDown(blocks, rows, cols);
         }
-        break;
-        }
-        case 3:{
-        for (int i = 0; i < measurements_number; i++)
-        {
-            FillDown(p, m, n);
-            Res[i] = (*sort_f)(Arr3D, p, m, n);
-        }
-        break;
-        }
+        Res[i] = measurementSortAlgorithm(typeSort, typeArray, blocks, rows, cols) ;
     }
-
 }
 
 
-void QuickSortMeasurement(int a, int p, int n, int m)//measurement for quicksort for 3D array
+void vectorMeasurement(fillType typeFill, int length, sortAlg typeSort,  arrType typeArray) {
+    for (int i = 0; i < measurements_number; i++) {
+        if (typeFill == UP) {
+            vectorFillUp(length);
+        }
+        else if (typeFill == RANDOM) {
+            vectorFillRand(length);
+        }
+        else if (typeFill = DOWN) {
+            vectorFillDown(length);
+        }
+
+        Res[i] = measurementSortAlgorithm(typeSort, typeArray, length);
+    }
+}
+
+void tensorQuickSortMeasurement(fillType typeFill, int blocks, int rows, int cols)//measurement for quicksort for 3D array
 {
-    switch(a) {
-        case 1:{
-            clock_t time_start, time_stop;
-        for (int i = 0; i < measurements_number; i++)
-        {
-            FillUp(p,m,n);
+        clock_t time_start, time_stop;
+        for (int i = 0; i < measurements_number; i++) {
+             if (typeFill == UP) {
+                tensorFillUp(blocks,rows,cols);
+            }
+            else if (typeFill == RANDOM) {
+                tensorFillRand(blocks,rows,cols);
+            }
+            else if (typeFill = DOWN) {
+                tensorFillDown(blocks, rows, cols);
+            }
+
             time_start = clock();//beg of time mes
-            tensorQuickSort(0, p-1, n, m);
+            tensorQuickSort(0, blocks-1, rows, cols);
             time_stop = clock();//end of time mes
             Res[i] = time_stop - time_start;//result
         }
-        break;
-        }
-        case 2: {
-            clock_t time_start, time_stop;
-        for (int i = 0; i < measurements_number; i++)
-        {
-            FillRand(p, m, n);
-            time_start = clock();
-            tensorQuickSort(0, p-1, n, m);
-            time_stop = clock();
-            Res[i] = time_stop - time_start;
-        }
-        break;
-        }
-        case 3:{
-            clock_t time_start, time_stop;
-        for (int i = 0; i < measurements_number; i++)
-        {
-            FillDown(p, m, n);
-            time_start = clock();
-            tensorQuickSort(0, p-1, n, m);
-            time_stop = clock();
-            Res[i] = time_stop - time_start;
-        }
-        break;
-        }
-    }
-}
-void SelectMeasurement(int a, int p, int n, int m)//measurement for select for 3D array
-{
-    switch(a) {
-        case 1:{
-        for (int i = 0; i < measurements_number; i++)
-        {
-            FillUp(p,m,n);
-            Res[i] = tensorSelect8(Arr3D, p,m,n);
-        }
-        break;
-        }
-        case 2: {
-        for (int i = 0; i < measurements_number; i++)
-        {
-            FillRand(p, m, n);
-            Res[i] = tensorSelect8(Arr3D, p,m,n);
-        }
-        break;
-        }
-        case 3:{
-        for (int i = 0; i < measurements_number; i++)
-        {
-            FillDown(p, m, n);
-            Res[i] = tensorSelect8(Arr3D, p,m,n);
-        }
-        break;
-        }
-    }
-
 }
 
-void ExchangeSortMeasurement(int a, int p, int n, int m)//measurement for exchange for 3D array
-{
-    switch(a) {
-        case 1:{
-        for (int i = 0; i < measurements_number; i++)
-        {
-            FillUp(p,m,n);
-            Res[i] = tensorExchange3(Arr3D, p,m,n);
-        }
-        break;
-        }
-        case 2: {
-        for (int i = 0; i < measurements_number; i++)
-        {
-            FillRand(p,m,n);
-            Res[i] = tensorExchange3(Arr3D, p,m,n);
-        }
-        break;
-        }
-        case 3:{
-        for (int i = 0; i < measurements_number; i++)
-        {
-            FillDown(p, m, n);
-            Res[i] = tensorExchange3(Arr3D, p,m,n);
-        }
-        break;
-        }
-    }
-}
 
-void vectorQuickSortMeasurement(int a, int v)//measurement for quicksort for vector
+void vectorQuickSortMeasurement(fillType typeFill, int length)//measurement for quicksort vector
 {
-    switch(a) {
-        case 1:{
-            clock_t time_start, time_stop;
-        for (int i = 0; i < measurements_number; i++)
-        {
-            vectorFillUp(v);
-            time_start = clock();
-            vectorQuickSort(0, v-1);
-            time_stop = clock();
-            Res[i] = time_stop - time_start;
+    clock_t time_start, time_stop;
+    for (int i = 0; i < measurements_number; i++) {
+         if (typeFill == UP) {
+            vectorFillUp(length);
         }
-        break;
+        else if (typeFill == RANDOM) {
+            vectorFillRand(length);
         }
-        case 2: {
-            clock_t time_start, time_stop;
-        for (int i = 0; i < measurements_number; i++)
-        {
-            vectorFillRand(v);
-            time_start = clock();
-            vectorQuickSort(0, v-1);
-            time_stop = clock();
-            Res[i] = time_stop - time_start;
+        else if (typeFill = DOWN) {
+            vectorFillDown(length);
         }
-        break;
-        }
-        case 3:{
-            clock_t time_start, time_stop;
-        for (int i = 0; i < measurements_number; i++)
-        {
-            vectorFillDown(v);
-            time_start = clock();
-            vectorQuickSort(0, v-1);
-            time_stop = clock();
-            Res[i] = time_stop - time_start;
-        }
-        break;
-        }
-    }
-}
-void vectorSelectMeasurement(int a, int v)//measurement for select for vector
-{
-    switch(a) {
-        case 1:{
-        for (int i = 0; i < measurements_number; i++)
-        {
-            vectorFillUp(v);
-            Res[i] = vectorSelect8(Vec, v);
-        }
-        break;
-        }
-        case 2: {
-        for (int i = 0; i < measurements_number; i++)
-        {
-            vectorFillRand(v);
-            Res[i] = vectorSelect8(Vec, v);
-        }
-        break;
-        }
-        case 3:{
-        for (int i = 0; i < measurements_number; i++)
-        {
-            vectorFillDown(v);
-            Res[i] = vectorSelect8(Vec, v);
-        }
-        break;
-        }
-    }
 
-}
-
-void vectorExchangeSortMeasurement(int a, int v)//measurement for exchange for vector
-{
-    switch(a) {
-        case 1:{
-        for (int i = 0; i < measurements_number; i++)
-        {
-            vectorFillUp(v);
-            Res[i] = vectorExchange3(Vec, v);
-        }
-        break;
-        }
-        case 2: {
-        for (int i = 0; i < measurements_number; i++)
-        {
-            vectorFillRand(v);
-            Res[i] = vectorExchange3(Vec, v);
-        }
-        break;
-        }
-        case 3:{
-        for (int i = 0; i < measurements_number; i++)
-        {
-            vectorFillDown(v);
-            Res[i] = vectorExchange3(Vec, v);
-        }
-        break;
-        }
+        time_start = clock();//beg of time mes
+        vectorQuickSort(0, length-1);
+        time_stop = clock();//end of time mes
+        Res[i] = time_stop - time_start;//result
     }
 }

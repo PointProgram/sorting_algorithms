@@ -1,0 +1,87 @@
+# depslib dependency file v1.0
+1656869823 source:c:\users\thinkpad\dropbox\my pc (vasyl)\desktop\kyckka\trainee\sorts\lookhere\sortmeasure\src\displayarray.c
+	<stdio.h>
+	"../include/commonVector.h"
+	"../include/globVar.h"
+
+1656887421 c:\users\thinkpad\dropbox\my pc (vasyl)\desktop\kyckka\trainee\sorts\lookhere\sortmeasure\include\commonvector.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1656869535 c:\users\thinkpad\dropbox\my pc (vasyl)\desktop\kyckka\trainee\sorts\lookhere\sortmeasure\include\globvar.h
+	<stdio.h>
+
+1656870189 source:c:\users\thinkpad\dropbox\my pc (vasyl)\desktop\kyckka\trainee\sorts\lookhere\sortmeasure\src\fillarr.c
+	"../include/fillArr.h"
+	"../include/commonVector.h"
+
+1656870134 c:\users\thinkpad\dropbox\my pc (vasyl)\desktop\kyckka\trainee\sorts\lookhere\sortmeasure\include\fillarr.h
+
+1656869792 source:c:\users\thinkpad\dropbox\my pc (vasyl)\desktop\kyckka\trainee\sorts\lookhere\sortmeasure\src\main.c
+	"../include/menu.h"
+	"../include/fillArr.h"
+	"../include/globVar.h"
+
+1656868555 c:\users\thinkpad\dropbox\my pc (vasyl)\desktop\kyckka\trainee\sorts\lookhere\sortmeasure\include\menu.h
+
+1656696671 source:c:\users\thinkpad\dropbox\my pc (vasyl)\desktop\kyckka\trainee\sorts\lookhere\sortmeasure\src\measurement.c
+	"../include/measurement.h"
+	<stdio.h>
+
+1656696716 c:\users\thinkpad\dropbox\my pc (vasyl)\desktop\kyckka\trainee\sorts\lookhere\sortmeasure\include\measurement.h
+	<time.h>
+
+1656876497 source:c:\users\thinkpad\dropbox\my pc (vasyl)\desktop\kyckka\trainee\sorts\lookhere\sortmeasure\src\mesres.c
+	"../include/measurement.h"
+	"../include/fillArr.h"
+	"../include/sortsVector.h"
+	"../include/sortsTensor.h"
+	"../include/mesRes.h"
+	"../include/commonVector.h"
+	"../include/argStd.h"
+	"../include/displayArray.h"
+
+1656693232 c:\users\thinkpad\dropbox\my pc (vasyl)\desktop\kyckka\trainee\sorts\lookhere\sortmeasure\include\sortsvector.h
+	<time.h>
+
+1656852849 c:\users\thinkpad\dropbox\my pc (vasyl)\desktop\kyckka\trainee\sorts\lookhere\sortmeasure\include\sortstensor.h
+	<time.h>
+
+1656876611 c:\users\thinkpad\dropbox\my pc (vasyl)\desktop\kyckka\trainee\sorts\lookhere\sortmeasure\include\mesres.h
+	"commonVector.h"
+
+1656858577 c:\users\thinkpad\dropbox\my pc (vasyl)\desktop\kyckka\trainee\sorts\lookhere\sortmeasure\include\argstd.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1656869093 c:\users\thinkpad\dropbox\my pc (vasyl)\desktop\kyckka\trainee\sorts\lookhere\sortmeasure\include\displayarray.h
+
+1656877234 source:c:\users\thinkpad\dropbox\my pc (vasyl)\desktop\kyckka\trainee\sorts\lookhere\sortmeasure\src\sortstensor.c
+	"../include/sortsTensor.h"
+	"../include/commonVector.h"
+	<time.h>
+	<math.h>
+
+1656701528 source:c:\users\thinkpad\dropbox\my pc (vasyl)\desktop\kyckka\trainee\sorts\lookhere\sortmeasure\src\sortsvector.c
+	"../include/sortsVector.h"
+	"../include/commonVector.h"
+	<time.h>
+	<math.h>
+
+1656887262 source:c:\users\thinkpad\dropbox\my pc (vasyl)\desktop\kyckka\trainee\sorts\lookhere\sortmeasure\src\menu.c
+	<time.h>
+	<windows.h>
+	<string.h>
+	<conio.h>
+	<stdio.h>
+	"../include/mesRes.h"
+	"../include/measurement.h"
+	"../include/commonVector.h"
+	"../include/menu.h"
+	"../include/globVar.h"
+	"../include/displayArray.h"
+	"../include/fillArr.h"
+	"../include/argStd.h"
+

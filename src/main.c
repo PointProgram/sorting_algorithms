@@ -2,18 +2,22 @@
 #include "../include/fillArr.h"
 #include "../include/globVar.h"
 
-int P = 20;
-int M = 20;
-int N = 14;
-int V = 200;
+int BLOCK = 3;//20;
+int ROW = 3;//20;
+int COLUMN = 3;//14;
+int VECTOR_LENGTH = 200;
 
 int main()
 {
-    DynBeg(P, M, N);//allocate memory for 3D array
-    vectorDynBeg(V);//allocate memory for vector
-    screen_saver();//main info title
-    menut();//menu for sort algorithms
-    DynEnd(P, M);//free 3D array
-    vectorDynEnd();//free vector
+    tensorAllocation(BLOCK, ROW, COLUMN);//allocate memory for 3D array
+    vectorAllocation(VECTOR_LENGTH);//allocate memory for vector
+
+    screenSaver();//main info title
+
+    tensorMainMenu();//menu for sort algorithms
+
+    tensorReleasingMemory(BLOCK, ROW);//free 3D array
+    vectorReleaseMemory();//free vector
+
     return 0;
 }

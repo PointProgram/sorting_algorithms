@@ -3,18 +3,23 @@
 #include "../include/globVar.h"
 
 
-void display3DArray() {
-    int i,j,k;
+void display3DArray(int blocks, int rows, int cols) {
 
-	for(k=0;k<P;k++){
-		for(j=0;j<N;j++){
-			for(i=0;i<M;i++){
-                printf("%d ", i);
+    printf("<______B________E_______G_____>\n");
+	for(int k=0;k<blocks;k++){
+		for(int j=0;j<rows;j++){
+            printf("%3s", "|");
+			for(int i=0;i<cols;i++){
+                printf("%d ", Arr3D[k][j][i]);
+                if (i == cols - 1) {
+                    printf("\n");
+                }
 			}
-			printf("\n");
 		}
+		printf("(%d)", k + 1);
 		printf("\n");
 	}
+	printf("<______E________N_______D_____>\n\n");
 
 }
 
