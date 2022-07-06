@@ -1,6 +1,7 @@
-#include "../include/fillArr.h"
+#include "../include/fillArray.h"
 #include "../include/commonVector.h"
-
+#include <string.h>
+#include <stdlib.h>
 
 void tensorAllocation(int blocks, int rows, int cols) {//allocate memory of array
     Arr3D = (int***) malloc(blocks*sizeof(int**));
@@ -44,7 +45,6 @@ int *copyVector(int length) {
     int *cpy;
 
     cpy = (int*) malloc(length*sizeof(int));
-
     memcpy(cpy, Vec, sizeof(int) * length);
 
     return cpy;

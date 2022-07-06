@@ -1,9 +1,9 @@
 #include "../include/sortsVector.h"
-
 #include "../include/commonVector.h"
 
-#include <time.h>
 #include <math.h>
+#include <stdlib.h>
+
 
 clock_t vectorInsert1(int * A, int N) {
     int Elem, j;
@@ -46,13 +46,18 @@ clock_t vectorInsert2(int * A, int N) {
 
 // Sorting algorithm No. 2 of the direct insertion method (from lines - by searching for the place of insertion from the inserted element, or "on the right", without a barrier).
 
-//#define VectorLength 10 int Vector[VectorLength + 1];
-
+// Vector alike implementation of expanding size for below method
+//#define VectorLength 10
+//int Vector[VectorLength+1];
+//--------------------------------------
 clock_t vectorInsert3(int * A, int N) {
     int j;
     clock_t time_start, time_stop;
     time_start = clock();
-    for (int i = 2; i < N + 1; i++) {
+
+//to complete the sorting process, add operation  + 1 to the expression N; hence, memory should be increased as well for full completion of the sort
+    //for (int i = 2; i < N + 1; i++) {
+    for (int i = 2; i < N; i++) {
         A[0] = A[i];
         j = i;
         while (A[0] < A[j - 1]) {

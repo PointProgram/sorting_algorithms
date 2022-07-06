@@ -2,6 +2,21 @@
 #define __SORTSTENSOR_H__
 #include <time.h>
 
+// Define the new variable type which is a struct.
+// This definition must be visible to any function that is accessing the
+// members of a variable of this type.
+typedef struct tensorCoords {
+    size_t cb; // current block
+    size_t cr; // current row
+    size_t cc; // current column
+
+    size_t nb; // next item block
+    size_t nr; // next item row
+    size_t nc; // next item column
+
+}tensorCoords;
+
+//Declare prototypes of  the tensor sort functions which are defined in corresponding source file
 clock_t tensorInsert1(int ***A, int blocks, int rows, int clmns);
 clock_t tensorInsert2(int ***A, int blocks, int rows, int clmns);
 clock_t tensorInsert3(int ***A, int blocks, int rows, int clmns);

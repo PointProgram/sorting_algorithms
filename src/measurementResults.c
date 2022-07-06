@@ -1,11 +1,10 @@
-#include "../include/measurement.h"
-#include "../include/fillArr.h"
+#include "../include/measurementTime.h"
+#include "../include/fillArray.h"
 #include "../include/sortsVector.h"
 #include "../include/sortsTensor.h"
-#include "../include/mesRes.h"
+#include "../include/measurementResults.h"
 #include "../include/commonVector.h"
 #include "../include/argStd.h"
-#include "../include/displayArray.h"
 
 clock_t measurementSortAlgorithmX(sortAlg typeSort, arrType type, int blocks, int rows, int cols) {
 
@@ -130,78 +129,58 @@ clock_t measurementSortAlgorithmX(sortAlg typeSort, arrType type, int blocks, in
 
 //passing a function as a parameter argument
 //void tensorMeasurement(int a, int p, int n, int m, clock_t (*sort_f)(int ***, int, int, int) )//measurement for select for 3D array
-void tensorMeasurement(fillType typeFill, int blocks, int rows, int cols, sortAlg typeSort,  arrType typeArray)//measurement for select for 3D array
+void arrayMeasurement(fillType typeFill, int blocks, int rows, int cols, sortAlg typeSort,  arrType typeArr)//measurement for select for 3D array
 {
     for (int i = 0; i < measurements_number; i++) {
         if (typeFill == UP) {
-            tensorFillUp(blocks,rows,cols);
-        }
-        else if (typeFill == RANDOM) {
-            tensorFillRand(blocks,rows,cols);
-        }
-        else if (typeFill = DOWN) {
-            tensorFillDown(blocks, rows, cols);
-        }
-        Res[i] = measurementSortAlgorithm(typeSort, typeArray, blocks, rows, cols) ;
-    }
-}
-
-
-void vectorMeasurement(fillType typeFill, int length, sortAlg typeSort,  arrType typeArray) {
-    for (int i = 0; i < measurements_number; i++) {
-        if (typeFill == UP) {
-            vectorFillUp(length);
-        }
-        else if (typeFill == RANDOM) {
-            vectorFillRand(length);
-        }
-        else if (typeFill = DOWN) {
-            vectorFillDown(length);
-        }
-
-        Res[i] = measurementSortAlgorithm(typeSort, typeArray, length);
-    }
-}
-
-void tensorQuickSortMeasurement(fillType typeFill, int blocks, int rows, int cols)//measurement for quicksort for 3D array
-{
-        clock_t time_start, time_stop;
-        for (int i = 0; i < measurements_number; i++) {
-             if (typeFill == UP) {
+            if (typeArr == TENSOR_)
                 tensorFillUp(blocks,rows,cols);
-            }
-            else if (typeFill == RANDOM) {
+            else
+                vectorFillUp(blocks);
+        }
+        else if (typeFill == RANDOM) {
+             if (typeArr == TENSOR_) {
                 tensorFillRand(blocks,rows,cols);
-            }
-            else if (typeFill = DOWN) {
-                tensorFillDown(blocks, rows, cols);
-            }
 
+                if (i == measurements_number - 1)
+                    Arr3D_unsorted = copyArray3D(blocks, rows, cols);
+             }
+             else {
+                vectorFillRand(blocks);
+
+                if (i == measurements_number - 1)
+                    Vec_unsorted = copyVector(blocks);
+             }
+        }
+        else if (typeFill = DOWN) {
+            if (typeArr == TENSOR_)
+                tensorFillDown(blocks, rows, cols);
+            else
+                vectorFillDown(blocks);
+        }
+
+        if (typeSort == QUICKSORT) {
+            clock_t time_start, time_stop;
             time_start = clock();//beg of time mes
-            tensorQuickSort(0, blocks-1, rows, cols);
+            if (typeArr == TENSOR_)
+                tensorQuickSort(0, blocks * rows * cols - 1, rows, cols);
+            else
+                vectorQuickSort(0, blocks - 1);
             time_stop = clock();//end of time mes
             Res[i] = time_stop - time_start;//result
         }
-}
-
-
-void vectorQuickSortMeasurement(fillType typeFill, int length)//measurement for quicksort vector
-{
-    clock_t time_start, time_stop;
-    for (int i = 0; i < measurements_number; i++) {
-         if (typeFill == UP) {
-            vectorFillUp(length);
-        }
-        else if (typeFill == RANDOM) {
-            vectorFillRand(length);
-        }
-        else if (typeFill = DOWN) {
-            vectorFillDown(length);
+        else {
+            if (typeArr == TENSOR_)
+                Res[i] = measurementSortAlgorithm(typeSort, typeArr, blocks, rows, cols);
+            else
+                Res[i] = measurementSortAlgorithm(typeSort, typeArr, blocks);
         }
 
-        time_start = clock();//beg of time mes
-        vectorQuickSort(0, length-1);
-        time_stop = clock();//end of time mes
-        Res[i] = time_stop - time_start;//result
+        if (i == measurements_number - 1 && typeFill == RANDOM)  {
+            if (typeArr == TENSOR_)
+                Arr3D_sorted = copyArray3D(blocks, rows, cols);
+            else
+                Vec_sorted = copyVector(blocks);
+        }
     }
 }

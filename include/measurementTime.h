@@ -1,5 +1,5 @@
-#ifndef __measurement_H__
-#define __measurement_H__
+#ifndef __MEASUREMENTTIME_H__
+#define __MEASUREMENTTIME_H__
 
 #include <time.h>
 
@@ -9,7 +9,7 @@
 //Number of rejected initial measurements
 #define rejected_number 2
 
-//Amount of rejected dimensions with minimal values
+//The number of rejected dimensions with minimal values
 //It also equels the amount of rejectem measurements with maximum values
 #define min_max_number 3
 

@@ -2,6 +2,7 @@
 #define __SORTSVECTOR_H__
 #include <time.h>
 
+//Declare the prototypes of the vector sort functions which are defined in corresponding source file
 clock_t vectorInsert1(int * A, int N);
 clock_t vectorInsert2(int * A, int N);
 clock_t vectorInsert3(int * A, int N);

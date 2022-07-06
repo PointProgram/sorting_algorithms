@@ -1,11 +1,11 @@
-#include "../include/menu.h"
-#include "../include/fillArr.h"
-#include "../include/globVar.h"
+#include "../include/menuList.h"
+#include "../include/fillArray.h"
+#include "../include/globalVariables.h"
 
-int BLOCK = 3;//20;
-int ROW = 3;//20;
-int COLUMN = 3;//14;
-int VECTOR_LENGTH = 200;
+int BLOCK = 10;
+int ROW = 10;
+int COLUMN = 10;
+int VECTOR_LENGTH = 20;
 
 int main()
 {
@@ -14,7 +14,7 @@ int main()
 
     screenSaver();//main info title
 
-    tensorMainMenu();//menu for sort algorithms
+    tensorMainMenu();//menu for selecting sort algorithms
 
     tensorReleasingMemory(BLOCK, ROW);//free 3D array
     vectorReleaseMemory();//free vector
