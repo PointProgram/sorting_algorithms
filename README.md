@@ -48,30 +48,39 @@ To run this project, install CodeBlocks or similar IDE with complilers that supp
 ![Screen Saver](imgs/screenSaver.jpg)
 
 <h4> Main menu structure </h4>
+
 ![Main Menu](./imgs/menu.jpg)
 
 <h4> Submenu structure </h4>
+
 ![Submenu](./imgs/submenu.jpg)
 
 <h4> Sorting process delay while executing coressponding methods</h4>
+
 ![Sorting process](./imgs/sortingProcess.jpg)
 
 <h4> Time results of sorted arrays</h4>
+
 ![Soring results](./imgs/sortingResults.jpg)
 
 <h4> Redefinition of the current array by disrupting the old one and declaring, allocating and setting new bounds</h4>
+
 ![Set Values](./imgs/setValues.jpg)
 
 <h4> Displaying array filled with random values and aftermath of the sortng process </h4>
+
 ![Display](./imgs/display.jpg)
 
 <h4> Switching between mods of 1D and 3D array</h4>
+
 ![Switch](./imgs/switch.jpg)
 
 <h4> Time results of sorted vectors</h4>
+
 ![Sorted Vector](./imgs/sortedVector.jpg)
 
 <h4> Displaying vector results</h4>
+
 ![Vector Display](./imgs/vectorDisplay.jpg)
 
 # Analyzing of QuickSort, Select8 and Exchange3
