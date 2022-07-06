@@ -44,7 +44,7 @@ To run this project, install CodeBlocks or similar IDE with complilers that supp
 ## Interface Overview
 
 <h4> Hello window with main info</h4>
-![Screen Saver](./imgs/screenSaver.jpg)
+![Screen Saver](imgs/screenSaver.jpg)
 
 <h4> Main menu structure </h4>
 ![Main Menu](./imgs/menu.jpg)
